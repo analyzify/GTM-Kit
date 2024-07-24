@@ -4,6 +4,8 @@ const google_feed_region = "EE";
 const google_business_vertical = "retail";
 const debugMode = true;
 const version = "1.0.0";
+const debugStyle = "background: #747bd5; color: #c9d1d9; padding: 3px;";
+const debugMsg = "Analyzify GTM Kit ->";
 
 window.dataLayer = window.dataLayer || [];
 
@@ -22,7 +24,7 @@ function GTM_init() {
     f.parentNode.insertBefore(j, f);
   })(window, document, "script", "dataLayer", GTM_ID);
 
-  if (debugMode) console.log("GTM initiated");
+  if (debugMode) console.log("%c%s Initiated", debugStyle, debugMsg);
 }
 
 // FUNCTIONS
@@ -76,13 +78,10 @@ const pushDataLayer = function (event, data) {
     analyzify_source: "gtm-kit",
     ...data,
   });
-  if (debugMode) console.log(event, data);
+  if (debugMode) console.log(`%c%s ${event}`, debugStyle, debugMsg, data);
 };
 
-if (debugMode)
-  console.log(
-    "Customer Events Pixel for " + GTM_ID + " initiated. Version: " + version
-  );
+if (debugMode) console.log("%c%s" + GTM_ID + " initiated. Version: " + version, debugStyle, debugMsg);
 
 // BUILD-IN EVENTS
 
