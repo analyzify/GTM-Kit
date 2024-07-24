@@ -359,6 +359,7 @@ analytics.subscribe("payment_info_submitted", (event) => {
 });
 
 analytics.subscribe("checkout_completed", (event) => {
+  GTM_init();
   const checkoutData = event.data.checkout;
   const productData = checkoutData.lineItems.map((item) => {
     const itemData = getItemObj(item.variant);
