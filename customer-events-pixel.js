@@ -78,7 +78,7 @@ const pushDataLayer = function (event, data) {
     analyzify_source: "gtm-kit",
     ...data,
     eventCallback: () => {
-      if (debug.status) console.log(`%c%s Event "${event}" pushed successfully.`, debugStyle, debugMsg);
+      if (debugMode) console.log(`%c%s Event "${event}" pushed successfully.`, debugStyle, debugMsg);
     },
   });
   if (debugMode) console.log(`%c%s ${event}`, debugStyle, debugMsg, data);
