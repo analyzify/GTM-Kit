@@ -225,7 +225,7 @@ analytics.subscribe("checkout_started", (event) => {
   });
   const userData = getUserData(checkoutData);
   pushDataLayer("ee_begin_checkout", {
-    userData,
+    ...userData,
     checkout_step: "started",
     ecommerce: {
       items: productData,
@@ -257,7 +257,7 @@ analytics.subscribe("checkout_contact_info_submitted", (event) => {
     });
     const userData = getUserData(checkoutData);
     pushDataLayer("ee_add_contact_info", {
-      userData,
+      ...userData,
       checkout_step: "contact",
       ecommerce: {
         items: productData,
@@ -286,7 +286,7 @@ analytics.subscribe("checkout_address_info_submitted", (event) => {
     });
     const userData = getUserData(checkoutData);
     pushDataLayer("ee_add_address_info", {
-      userData,
+      ...userData,
       checkout_step: "address",
       ecommerce: {
         items: productData,
@@ -316,7 +316,7 @@ analytics.subscribe("checkout_shipping_info_submitted", (event) => {
     const userData = getUserData(checkoutData);
     if (eventFlags.checkout_shipping_info_submitted) {
       pushDataLayer("ee_add_shipping_info", {
-        userData,
+        ...userData,
         checkout_step: "shipping",
         ecommerce: {
           items: productData,
@@ -345,7 +345,7 @@ analytics.subscribe("payment_info_submitted", (event) => {
   });
   const userData = getUserData(checkoutData);
   pushDataLayer("ee_add_payment_info", {
-    userData,
+    ...userData,
     checkout_step: "payment",
     ecommerce: {
       items: productData,
@@ -373,7 +373,7 @@ analytics.subscribe("checkout_completed", (event) => {
   const userData = getUserData(checkoutData);
 
   pushDataLayer("ee_purchase", {
-    userData,
+    ...userData,
     checkout_step: "thank_you",
     ecommerce: {
       items: productData,
