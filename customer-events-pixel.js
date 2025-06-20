@@ -92,7 +92,8 @@ if (debugMode) console.log("%c%s" + GTM_ID + " initiated. Version: " + version, 
 
 analytics.subscribe("page_viewed", (event) => {
   GTM_init();
-  const page_location = document.location.href;
+  const { document } = event.context;
+  const page_location = encodeURI(document.location.href);
   const page_path = document.location.pathname;
   const query = document.location.search;
   const hostname = document.location.hostname;
