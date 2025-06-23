@@ -7,7 +7,7 @@ Ideal for GA4, Google Ads, and any GTM-compatible destination.
 This kit is designed to simplify the process of adding GTM to your Shopify store.  
 It includes:
 - A ready-to-use GTM container with essential tags, triggers, and variables [Download the GTM Kit Container](./container/gtm-kit.json)
-- A custom data layer setup tailored for Shopify
+- A custom data layer setup tailored for Shopify Customer Events structure
 
 ---
 
