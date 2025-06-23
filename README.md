@@ -6,7 +6,7 @@ Ideal for GA4, Google Ads, and any GTM-compatible destination.
 
 This kit is designed to simplify the process of adding GTM to your Shopify store.  
 It includes:
-- A ready-to-use GTM container with essential tags, triggers, and variables
+- A ready-to-use GTM container with essential tags, triggers, and variables [Download the GTM Kit Container](./container/gtm-kit.json)
 - A custom data layer setup tailored for Shopify
 
 ---
@@ -17,6 +17,23 @@ It includes:
 |------|---------|
 | `customer-events-pixel.js` | Core script (place in *Online Store → Customer Events*). |
 | `README.md` | Setup guide & developer notes. |
+
+---
+
+### GTM-kit container
+> ⚠️ The container does **not** include your measurement IDs (like GA4 or Google Ads) — you’ll need to update those after import.
+
+### How to Import 
+
+1. Go to your [Google Tag Manager](https://tagmanager.google.com) account
+2. Open the container you want to use
+3. Navigate to **Admin → Import Container**
+4. Select the provided `gtm-kit.json` file
+5. Choose the workspace (usually `Default Workspace`)
+6. Select:
+    - **Merge** (if you already have tags and want to add ours), or
+    - **Overwrite** (to fully replace your setup)
+7. Click **Confirm** and review the imported items
 
 ---
 
