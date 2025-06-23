@@ -85,7 +85,8 @@ const debugMode          = false;         // ← disable in production
 | `google_business_vertical` | No  | Keep `retail` unless you run a service business.                                                                                                                                        |
 | `debugMode`            | No       | Prints verbose console logs & prevents silent failures while testing. <br>⚠️ Note: Shopify Customer Events run in a sandbox, so GTM Preview Mode won’t function. Use console logs instead or test via Shopify Pixel Test Mode. |
 
-> **Heads-up:** The script injects GTM automatically. Remove any other GTM snippet to avoid duplicate container loads.
+> [!IMPORTANT]  
+> The script injects GTM automatically. Remove any other GTM snippet to avoid duplicate container loads.
 
 ## Event Mapping
 
