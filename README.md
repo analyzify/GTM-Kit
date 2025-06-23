@@ -21,8 +21,8 @@ It includes:
 ---
 
 ### GTM-kit container
-> [!IMPORTANT]  
-> ⚠️ The container does **not** include your measurement IDs (like GA4 or Google Ads) — you’ll need to update those after import.
+> [!Warning]  
+> The container does **not** include your measurement IDs (like GA4 or Google Ads) — you’ll need to update those after import.
 
 ### How to Import 
 
