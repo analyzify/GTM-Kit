@@ -28,12 +28,35 @@ It includes:
 1. Go to your [Google Tag Manager](https://tagmanager.google.com) account
 2. Open the container you want to use
 3. Navigate to **Admin → Import Container**
-4. Select the provided `gtm-kit.json` file
-5. Choose the workspace (usually `Default Workspace`) or create a new one
+4. Select and upload the provided `gtm-kit.json` file from this repo
+5. Choose your target workspace:
+   - Use **Default Workspace**, or
+   - Create a new one for clean start
 6. Select:
     - **Merge** (if you already have tags and want to add ours), or
-    - **Overwrite** (to fully replace your setup)
-7. Click **Confirm** and review the imported items
+    - **Overwrite** (to replace your current setup entirely)
+7. Click **Confirm** and review all the imported tags, triggers, and variables
+
+#### After Import: Update Required Variables
+
+Once the container is imported:
+
+- Go to the **Variables** section in the left sidebar.
+- Update the following variables:
+  - **Conversion ID** – used for Google Ads conversions.
+  - **Measurement ID** – used for GA4 data streams.
+  - Optional: Add **conversion labels** for events like `add_to_cart`, `view_item`, and `purchase`.
+ 
+#### Product ID Format (Optional)
+
+- The default product ID format is `Product ID`.
+- If you prefer, you can update this to use:
+  - `SKU`
+  - `Variant ID`
+- This can help align your GTM data with your Merchant Center or feed setup.
+
+> [!NOTE]  
+> Make sure to **publish** your container after making changes, since GTM Preview Mode won’t function in Shopify Customer Events sandbox
 
 ---
 
