@@ -1,14 +1,38 @@
-// VARIABLES
-const GTM_ID = "GTM-XXXXXXXX";
-const google_feed_region = "EE";
-const google_business_vertical = "retail";
-const debugMode = true;
+/* ------------------------------------------------------------------------
+  Shopify Customer Events Pixel
+  ------------------------------------------------------------------------
+  Description  :  Sends enhanced-ecommerce events from Shopify’s Customer Events
+                  API to Google Tag Manager (GTM) + Google Ads.
+  Author       :  Analyzify
+  Version      :  1.0.0
+  ------------------------------------------------------------------------
+  REQUIRED SET-UP
+    • GTM_ID                 – Replace "GTM-XXXXXXXX" with your own container ID.
+    • google_feed_region     – Two-letter feed region code used in your
+                               Google Merchant Center feed (e.g. "US", "UK").
+    • (Optional) debugMode   – Set to false in production.
+  ---------------------------------------------------------------------- */
+
+/* ============
+   GLOBAL CONFIG
+   ============ */
+const GTM_ID = "GTM-XXXXXXXX"; // ← GTM container ID (UA-, GA4, or server-side)
+const google_feed_region = "YY"; // ← Merchant-Center region code
+const google_business_vertical = "retail"; // Keep as-is unless you sell services
+const debugMode = true; // Toggle verbose console logs
+
+/* ============
+   ADDITONAL CONFIG
+   ============ */
 const version = "1.0.0";
 const debugStyle = "background: #747bd5; color: #c9d1d9; padding: 3px;";
 const debugMsg = "Analyzify GTM Kit ->";
 
 window.dataLayer = window.dataLayer || [];
 
+/* ====================
+   GOOGLE TAG MANAGER
+   ==================== */
 function GTM_init() {
   // GTM INITIALIZATION
   window.dataLayer = window.dataLayer || [];
@@ -27,8 +51,14 @@ function GTM_init() {
   if (debugMode) console.log("%c%s Initiated", debugStyle, debugMsg);
 }
 
-// FUNCTIONS
+/* =========
+   HELPERS
+   ========= */
 
+/**
+ * Transforms a Shopify product/variant object to a Google Ads-ready
+ * item schema.  Update here if you need extra attributes.
+ */
 const getItemObj = function (item) {
   return {
     item_id: item.product.id,
@@ -46,10 +76,13 @@ const getItemObj = function (item) {
   };
 };
 
+/**
+ * Normalises customer information – looks first at shipping, then billing.
+ * Add or remove fields as required by your ad platform.
+ */
 const getUserData = function (userObj) {
   const checkUserData =
     userObj.shippingAddress && userObj.shippingAddress.lastName ? userObj.shippingAddress : userObj.billingAddress && userObj.billingAddress.lastName ? userObj.billingAddress : {};
-
   return {
     user: {
       email: userObj.email || checkUserData.email || null,
@@ -68,10 +101,12 @@ const getUserData = function (userObj) {
   };
 };
 
+/* Sum helper for line-item arrays */
 const getTotalPrice = function (price) {
   return price.reduce((a, b) => a + b.price, 0);
 };
 
+/* Universal push wrapper to keep logs consistent */
 const pushDataLayer = function (event, data) {
   window.dataLayer.push({
     event,
@@ -86,12 +121,15 @@ const pushDataLayer = function (event, data) {
 
 if (debugMode) console.log("%c%s" + GTM_ID + " initiated. Version: " + version, debugStyle, debugMsg);
 
-// BUILD-IN EVENTS
+/* ======================
+   BUILT-IN ANALYTICS EVENTS
+   ====================== */
 
-// GENERAL EVENTS
-
+/* --------
+   PAGE VIEW
+   -------- */
 analytics.subscribe("page_viewed", (event) => {
-  GTM_init();
+  GTM_init(); // Inject GTM script on the first page view
   const { document } = event.context;
   const page_location = encodeURI(document.location.href);
   const page_path = document.location.pathname;
@@ -109,6 +147,9 @@ analytics.subscribe("page_viewed", (event) => {
   });
 });
 
+/* --------
+   SEARCH
+   -------- */
 analytics.subscribe("search_submitted", (event) => {
   const productData = event.data.searchResult.productVariants.map(
     (item, index) => {
@@ -131,9 +172,10 @@ analytics.subscribe("search_submitted", (event) => {
 });
 
 // ECOMMERCE EVENTS
-
+/* ---------------
+   COLLECTION VIEW
+   --------------- */
 // Scope: data.collection.productVariants
-
 analytics.subscribe("collection_viewed", (event) => {
   const productData = event.data.collection.productVariants.map(
     (item, index) => {
@@ -156,8 +198,10 @@ analytics.subscribe("collection_viewed", (event) => {
   });
 });
 
+/* --------------
+   PRODUCT DETAIL
+   -------------- */
 // Scope: data.productVariant
-
 analytics.subscribe("product_viewed", (event) => {
   const productData = getItemObj(event.data.productVariant);
   pushDataLayer("ee_view_item", {
@@ -169,8 +213,10 @@ analytics.subscribe("product_viewed", (event) => {
   });
 });
 
+/* ------------
+   CART ACTIONS
+   ------------ */
 // Scope: data.cartLine.merchandise
-
 analytics.subscribe("product_added_to_cart", (event) => {
   const cartData = event.data.cartLine;
   const productData = getItemObj(cartData.merchandise);
@@ -213,8 +259,10 @@ analytics.subscribe("cart_viewed", (event) => {
   });
 });
 
+/* -----------
+   CHECKOUT FUNNEL
+   ----------- */
 // Scope: data.checkout.merchandise
-
 analytics.subscribe("checkout_started", (event) => {
   const checkoutData = event.data.checkout;
   const productData = checkoutData.lineItems.map((item) => {
@@ -241,11 +289,12 @@ analytics.subscribe("checkout_started", (event) => {
   });
 });
 
-// Define flags to track whether events have been processed
+/* Flags prevent duplicate firing on the same page reload */
 let contactInfoSubmittedProcessed = false;
 let addressInfoSubmittedProcessed = false;
 let shippingInfoSubmittedProcessed = false;
 
+/* Contact Info */
 analytics.subscribe("checkout_contact_info_submitted", (event) => {
   if (!contactInfoSubmittedProcessed) {
     const checkoutData = event.data.checkout;
@@ -274,7 +323,7 @@ analytics.subscribe("checkout_contact_info_submitted", (event) => {
     contactInfoSubmittedProcessed = true;
   }
 });
-
+/* Address Info */
 analytics.subscribe("checkout_address_info_submitted", (event) => {
   if (!addressInfoSubmittedProcessed) {
     const checkoutData = event.data.checkout;
@@ -303,7 +352,7 @@ analytics.subscribe("checkout_address_info_submitted", (event) => {
     addressInfoSubmittedProcessed = true;
   }
 });
-
+/* Shipping Info */
 analytics.subscribe("checkout_shipping_info_submitted", (event) => {
   if (!addressInfoSubmittedProcessed) {
     const checkoutData = event.data.checkout;
@@ -334,7 +383,7 @@ analytics.subscribe("checkout_shipping_info_submitted", (event) => {
     shippingInfoSubmittedProcessed = true;
   }
 });
-
+/* Payment Info */
 analytics.subscribe("payment_info_submitted", (event) => {
   const checkoutData = event.data.checkout;
   const productData = checkoutData.lineItems.map((item) => {
@@ -360,9 +409,9 @@ analytics.subscribe("payment_info_submitted", (event) => {
     },
   });
 });
-
+/* Purchase / Thank You */
 analytics.subscribe("checkout_completed", (event) => {
-  GTM_init();
+  GTM_init(); // Ensure GTM loads on the thank-you page
   const checkoutData = event.data.checkout;
   const productData = checkoutData.lineItems.map((item) => {
     const itemData = getItemObj(item.variant);
