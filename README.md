@@ -9,14 +9,14 @@ Ideal for GA4, Google Ads, and any GTM-compatible destination.
 
 | File | Purpose |
 |------|---------|
-| `shopify-customer-events-pixel.js` | Core script (place in *Online Store → Customer Events*). |
+| `customer-events-pixel.js` | Core script (place in *Online Store → Customer Events*). |
 | `README.md` | Setup guide & developer notes. |
 
 ---
 
 ## Quick Start
 
-1. **Copy** `shopify-customer-events-pixel.js` into **Settings → Customer Events** in your Shopify Admin.  
+1. **Copy** `customer-events-pixel.js` into **Settings → Customer Events** in your Shopify Admin.  
 2. **Edit the constants** at the top of the file:  
 
 ```js
