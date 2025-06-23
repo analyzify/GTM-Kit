@@ -123,7 +123,8 @@ All ecommerce events follow Google’s Enhanced Ecommerce `items[]` spec and inc
 
 ## Contributing
 
-PRs welcome! Follow conventional commits (`feat:`, `fix:`…) & run Prettier before pushing.
+PRs welcome! Please follow [conventional commit](https://www.conventionalcommits.org/en/v1.0.0/) standards (`feat:`, `fix:`, etc.).
+> The formatting is intentional to ensure compatibility, readability, and maintainability within the Shopify Customer Events environment.
 
 ---
 
