@@ -1,7 +1,13 @@
-# Shopify Customer Events Pixel (GTM Kit)
+# Shopify GTM Kit by Analyzify (v1.0)
 
-Collects **enhanced-ecommerce** events from Shopify’s Customer Events API and forwards them to **Google Tag Manager**.  
+A simple and flexible open-source kit to integrate Google Tag Manager (GTM) into your Shopify store with minimal setup.
+It captures **enhanced-ecommerce** events via Shopify’s Customer Events API and forwards them to **Google Tag Manager**.
 Ideal for GA4, Google Ads, and any GTM-compatible destination.
+
+This kit is designed to simplify the process of adding GTM to your Shopify store.  
+It includes:
+- A ready-to-use GTM container with essential tags, triggers, and variables
+- A custom data layer setup tailored for Shopify
 
 ---
 
@@ -16,7 +22,7 @@ Ideal for GA4, Google Ads, and any GTM-compatible destination.
 
 ## Quick Start
 
-1. **Copy** `customer-events-pixel.js` into **Settings → Customer Events** in your Shopify Admin.  
+1. **Copy** `customer-events-pixel.js` into **Settings → Customer Events** in your Shopify Admin.
 2. **Edit the constants** at the top of the file:  
 
 ```js
@@ -70,7 +76,7 @@ All ecommerce events follow Google’s Enhanced Ecommerce `items[]` spec and inc
 | Duplicate `ee_*` hits               | The script uses internal flags to prevent double-firing during checkout reloads. Still seeing duplicates? Clear `localStorage` & test again.             |
 | GTM Preview shows hits but GA4 doesn’t | Verify GA4 tag fires on corresponding `ee_*` events. Also check currency/ID mismatches.                                                                  |
 | Google Ads feed errors              | Ensure `google_feed_region` matches your Google Merchant Center region and your IDs follow the pattern `shopify_<region>_<product.id>_<variant.id>`.    |
-| GTM tags not firing as expected     | GTM Preview Mode does not work inside Shopify’s Customer Events sandbox. This means unpublished changes in your GTM container will not be recognized. **You must publish your GTM container after every change** to test it live. Suggestion: group changes together, publish once, then verify using browser console logs or Shopify’s Pixel Test Mode. |
+
 ---
 
 ## Contributing
