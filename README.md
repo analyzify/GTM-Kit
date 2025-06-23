@@ -29,7 +29,7 @@ It includes:
 2. Open the container you want to use
 3. Navigate to **Admin → Import Container**
 4. Select the provided `gtm-kit.json` file
-5. Choose the workspace (usually `Default Workspace`)
+5. Choose the workspace (usually `Default Workspace`) or create a new one
 6. Select:
     - **Merge** (if you already have tags and want to add ours), or
     - **Overwrite** (to fully replace your setup)
