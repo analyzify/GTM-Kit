@@ -70,7 +70,7 @@ All ecommerce events follow Google’s Enhanced Ecommerce `items[]` spec and inc
 | Duplicate `ee_*` hits               | The script uses internal flags to prevent double-firing during checkout reloads. Still seeing duplicates? Clear `localStorage` & test again.             |
 | GTM Preview shows hits but GA4 doesn’t | Verify GA4 tag fires on corresponding `ee_*` events. Also check currency/ID mismatches.                                                                  |
 | Google Ads feed errors              | Ensure `google_feed_region` matches your Google Merchant Center region and your IDs follow the pattern `shopify_<region>_<product.id>_<variant.id>`.    |
-
+| GTM tags not firing as expected     | GTM Preview Mode does not work inside Shopify’s Customer Events sandbox. This means unpublished changes in your GTM container will not be recognized. **You must publish your GTM container after every change** to test it live. Suggestion: group changes together, publish once, then verify using browser console logs or Shopify’s Pixel Test Mode. |
 ---
 
 ## Contributing
