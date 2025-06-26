@@ -115,9 +115,15 @@ const pushDataLayer = function (event, data) {
     debug_mode: debugMode || false,
     eventCallback: () => {
       if (debugMode) console.log(`%c%s Event "${event}" pushed successfully.`, debugStyle, debugMsg);
+      if (debugMode) console.log(`%c%s dataLayer`, debugStyle, debugMsg);
     },
   });
-  if (debugMode) console.log(`%c%s ${event}`, debugStyle, debugMsg, data);
+  if (debugMode){
+    console.group('GTM Kit Debugger');
+    console.log(`%c%s ${event}`, debugStyle, debugMsg, data);
+    console.log(window.dataLayer);
+    console.groupEnd();
+  }
 };
 
 if (debugMode) console.log("%c%s" + GTM_ID + " initiated. Version: " + version, debugStyle, debugMsg);
