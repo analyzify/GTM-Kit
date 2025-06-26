@@ -1,6 +1,6 @@
 {
   "exportFormatVersion": 2,
-  "exportTime": "2025-06-23 09:03:14",
+  "exportTime": "2025-06-26 08:22:16",
   "containerVersion": {
     "path": "accounts/6002958335/containers/222830601/versions/0",
     "accountId": "6002958335",
@@ -48,7 +48,7 @@
           {
             "type": "TEMPLATE",
             "key": "tagId",
-            "value": "AW-{{const - Ads - Conversion ID}}"
+            "value": "AW-{{**UPDATE** - Ads - Conversion ID}}"
           },
           {
             "type": "LIST",
@@ -94,7 +94,7 @@
           {
             "type": "TEMPLATE",
             "key": "tagId",
-            "value": "{{const - GA4 - Measurement ID}}"
+            "value": "{{**UPDATE** - GA4 - Measurement ID}}"
           },
           {
             "type": "TEMPLATE",
@@ -200,7 +200,7 @@
           {
             "type": "TEMPLATE",
             "key": "conversionId",
-            "value": "{{const - Ads - Conversion ID}}"
+            "value": "{{**UPDATE** - Ads - Conversion ID}}"
           },
           {
             "type": "TEMPLATE",
@@ -250,7 +250,7 @@
           {
             "type": "TEMPLATE",
             "key": "conversionId",
-            "value": "{{const - Ads - Conversion ID}}"
+            "value": "{{**UPDATE** - Ads - Conversion ID}}"
           }
         ],
         "fingerprint": "1750346111842",
@@ -320,7 +320,7 @@
           {
             "type": "TEMPLATE",
             "key": "conversionId",
-            "value": "{{const - Ads - Conversion ID}}"
+            "value": "{{**UPDATE** - Ads - Conversion ID}}"
           },
           {
             "type": "TEMPLATE",
@@ -335,7 +335,7 @@
           {
             "type": "TEMPLATE",
             "key": "conversionLabel",
-            "value": "{{const - Ads - Conversion Label - purchase}}"
+            "value": "{{**UPDATE** - Ads - Conversion Label - purchase}}"
           },
           {
             "type": "BOOLEAN",
@@ -380,7 +380,7 @@
           {
             "type": "TEMPLATE",
             "key": "measurementIdOverride",
-            "value": "{{const - GA4 - Measurement ID}}"
+            "value": "{{**UPDATE** - GA4 - Measurement ID}}"
           },
           {
             "type": "TEMPLATE",
@@ -460,7 +460,7 @@
           {
             "type": "TEMPLATE",
             "key": "conversionId",
-            "value": "{{const - Ads - Conversion ID}}"
+            "value": "{{**UPDATE** - Ads - Conversion ID}}"
           },
           {
             "type": "TEMPLATE",
@@ -475,7 +475,7 @@
           {
             "type": "TEMPLATE",
             "key": "conversionLabel",
-            "value": "{{const - Ads - Conversion Label - view_item}}"
+            "value": "{{**UPDATE** - Ads - Conversion Label - view_item}}"
           },
           {
             "type": "BOOLEAN",
@@ -551,7 +551,7 @@
           {
             "type": "TEMPLATE",
             "key": "measurementIdOverride",
-            "value": "{{const - GA4 - Measurement ID}}"
+            "value": "{{**UPDATE** - GA4 - Measurement ID}}"
           }
         ],
         "fingerprint": "1750610654659",
@@ -606,7 +606,7 @@
           {
             "type": "TEMPLATE",
             "key": "conversionId",
-            "value": "{{const - Ads - Conversion ID}}"
+            "value": "{{**UPDATE** - Ads - Conversion ID}}"
           },
           {
             "type": "TEMPLATE",
@@ -682,7 +682,7 @@
           {
             "type": "TEMPLATE",
             "key": "conversionId",
-            "value": "{{const - Ads - Conversion ID}}"
+            "value": "{{**UPDATE** - Ads - Conversion ID}}"
           },
           {
             "type": "TEMPLATE",
@@ -697,7 +697,7 @@
           {
             "type": "TEMPLATE",
             "key": "conversionLabel",
-            "value": "{{const - Ads - Conversion Label - add_to_cart}}"
+            "value": "{{**UPDATE** - Ads - Conversion Label - add_to_cart}}"
           },
           {
             "type": "BOOLEAN",
@@ -808,7 +808,7 @@
           {
             "type": "TEMPLATE",
             "key": "measurementIdOverride",
-            "value": "{{const - GA4 - Measurement ID}}"
+            "value": "{{**UPDATE** - GA4 - Measurement ID}}"
           },
           {
             "type": "TEMPLATE",
@@ -2045,7 +2045,7 @@
         "accountId": "6002958335",
         "containerId": "222830601",
         "variableId": "37",
-        "name": "const - Ads - Conversion ID",
+        "name": "**UPDATE** - Ads - Conversion ID",
         "type": "c",
         "parameter": [
           {
@@ -2054,14 +2054,15 @@
             "value": "--var-conversion-ID--"
           }
         ],
-        "fingerprint": "1750347014259",
+        "fingerprint": "1750924931872",
+        "parentFolderId": "85",
         "formatValue": {}
       },
       {
         "accountId": "6002958335",
         "containerId": "222830601",
         "variableId": "39",
-        "name": "const - GA4 - Measurement ID",
+        "name": "**UPDATE** - GA4 - Measurement ID",
         "type": "c",
         "parameter": [
           {
@@ -2070,7 +2071,8 @@
             "value": "--var-measurement-id--"
           }
         ],
-        "fingerprint": "1750610510107",
+        "fingerprint": "1750924931873",
+        "parentFolderId": "85",
         "formatValue": {}
       },
       {
@@ -2627,7 +2629,7 @@
         "accountId": "6002958335",
         "containerId": "222830601",
         "variableId": "82",
-        "name": "const - Ads - Conversion Label - view_item",
+        "name": "**UPDATE** - Ads - Conversion Label - view_item",
         "type": "c",
         "parameter": [
           {
@@ -2636,14 +2638,15 @@
             "value": "--var-conversion-label-view-item--"
           }
         ],
-        "fingerprint": "1750345373507",
+        "fingerprint": "1750924931873",
+        "parentFolderId": "85",
         "formatValue": {}
       },
       {
         "accountId": "6002958335",
         "containerId": "222830601",
         "variableId": "83",
-        "name": "const - Ads - Conversion Label - add_to_cart",
+        "name": "**UPDATE** - Ads - Conversion Label - add_to_cart",
         "type": "c",
         "parameter": [
           {
@@ -2652,14 +2655,15 @@
             "value": "--var-conversion-label-add-to-cart--"
           }
         ],
-        "fingerprint": "1750345388293",
+        "fingerprint": "1750924931873",
+        "parentFolderId": "85",
         "formatValue": {}
       },
       {
         "accountId": "6002958335",
         "containerId": "222830601",
         "variableId": "84",
-        "name": "const - Ads - Conversion Label - purchase",
+        "name": "**UPDATE** - Ads - Conversion Label - purchase",
         "type": "c",
         "parameter": [
           {
@@ -2668,8 +2672,18 @@
             "value": "--var-conversion-label-purchase--"
           }
         ],
-        "fingerprint": "1750345401020",
+        "fingerprint": "1750924931874",
+        "parentFolderId": "85",
         "formatValue": {}
+      }
+    ],
+    "folder": [
+      {
+        "accountId": "6002958335",
+        "containerId": "222830601",
+        "folderId": "85",
+        "name": "User variables",
+        "fingerprint": "1750925005396"
       }
     ],
     "builtInVariable": [
@@ -2704,7 +2718,7 @@
         "name": "Event"
       }
     ],
-    "fingerprint": "1750669394056",
+    "fingerprint": "1750926136621",
     "tagManagerUrl": "https://tagmanager.google.com/#/versions/accounts/6002958335/containers/222830601/versions/0?apiLink=version"
   }
 }
