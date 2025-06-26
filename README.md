@@ -13,10 +13,11 @@ It includes:
 
 ## Contents
 
-| File | Purpose |
-|------|---------|
-| `customer-events-pixel.js` | Core script (place in *Online Store → Customer Events*). |
-| `README.md` | Setup guide & developer notes. |
+| File                       | Purpose                                                                                  |
+|----------------------------|------------------------------------------------------------------------------------------|
+| `customer-events-pixel.js` | Core script (place in *Online Store → Customer Events*).                                 |
+| `README.md`                | Setup guide & developer notes.                                                           |
+| `gtm-kit.json`             | Exported GTM container file including tags, triggers, and variables (to import in GTM).  |
 
 ---
 
