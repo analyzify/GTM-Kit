@@ -20,39 +20,31 @@ It includes:
 
 ---
 
-## Preparation
+## Quick Start
 
 Before you import the GTM container and set up the pixel script, make sure you have the following accounts and information ready:
 
-### Step 1: Create a Google Tag Manager (GTM) Account
-- If you don’t have a GTM account, create one 👉 [GTM](https://tagmanager.google.com)
-- After creating the account, note your **GTM Container ID** (e.g., `GTM-XXXXXXX`)
+### Step 1: Collect Required Variables
 
-### Step 2: Create a GA4 Property
-- Go to 👉 [Google Analytics](https://analytics.google.com/)
-- Create a new **GA4 property** (or use an existing one)
-- Navigate to: **Admin → Data Streams → Web**
-- Note down your **Measurement ID** (e.g., `G-XXXXXXXXXX`)
-
-### Step 3: Create a Google Ads Account *(Optional, but recommended)*
-- Visit 👉 [Google Ads](https://ads.google.com/)
-- After account setup, if you don't have conversions, create them ([how to create conversions](https://docs.analyzify.com/how-to-create-a-new-google-ads-conversion))
-- Note down:
-   - Your **Conversion ID**
-   - Your **Conversion Labels** for key events ( for this container you need: `add_to_cart`, `view_item`, and `purchase` as a starter )
-
-### Step 4: Collect Required Variables
-
-| Variable Name         | Where to Find It                                                                                                                                                             |
-|-----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `GTM ID`              | GTM Dashboard → Top-right corner (e.g., `GTM-XXXXXXX`)                                                                                                                            |
-| `Measurement ID`      | GA4 → Admin → Data Collection and Modification → Data Streams → Choose your web stream or create one if you do not have any → Measurement ID                                 |
+| Variable Name         | Where to Find It                                                                                                                                                              |
+|-----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `GTM ID`              | GTM Dashboard → Top-right corner (e.g., `GTM-XXXXXXX`)                                                                                                                        |
+| `Measurement ID`      | GA4 → Admin → Data Collection and Modification → Data Streams → Choose your web stream or create one if you do not have any → Measurement ID                                  |
 | `Conversion ID`       | Google Ads → Goals → Conversions → Choose conversion action → Tag Setup → Select GTM ([how to find](https://docs.analyzify.com/find-your-google-ads-conversion-id-and-label)) |
 | `Conversion Label(s)` | Google Ads → Goals → Conversions → Choose conversion action → Tag Setup → Select GTM ([how to find](https://docs.analyzify.com/find-your-google-ads-conversion-id-and-label)) |
 
+If you haven’t set up the necessary accounts yet, you can create them using the links below:
+
+👉 [Google Analytics (GA4)](https://analytics.google.com/)  
+👉 [Google Ads](https://ads.google.com/)  
+👉 [Google Tag Manager](https://tagmanager.google.com/)
+
+If you don’t have any conversion actions set up in Google Ads and you don't know how to create them, follow this guide:  
+👉 [How to create a Google Ads conversion](https://docs.analyzify.com/how-to-create-a-new-google-ads-conversion)
+
 ---
 
-## Quick Start
+### Step 2: Add custom pixel to your shop
 
 1. Go to **Shopify Admin → Settings → Customer Events**
 2. Click **“Add custom pixel”**, paste the contents of `customer-events-pixel.js`, and name it **Analyzify GTM Kit v1.0**
@@ -80,7 +72,8 @@ const debugMode          = false;         // ← disable in production
 > [!IMPORTANT]  
 > The script injects GTM automatically. Remove any other GTM snippet to avoid duplicate container loads.
 
-## GTM-kit container
+--- 
+### Step 3: GTM-kit container
 > [!Warning]  
 > The container does **not** include your measurement IDs (like GA4 or Google Ads) — you’ll need to update those after import.
 
