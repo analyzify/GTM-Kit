@@ -8,7 +8,7 @@ An open-source kit for Shopify merchants: `customer-events-pixel.js` (a custom p
 
 ## Why it existed
 
-A free, open-source successor to the Shopify GA4 Kit built on Shopify's Customer Events API, meant as content and a lead magnet for Analyzify. The pixel script was started in April 2024 and the kit (README, container, docs) was finished as v1.0 in June 2025 by the Analyzify tracking team.
+A free, open-source successor to the Shopify GA4 Kit built on Shopify's Customer Events API, meant as content and a lead magnet for Analyzify. The pixel script was started in April 2024 and the kit (README, container, docs) was finished as v1.0 in June 2025 by Ceyhun Aksan with Melike Kaya during her onboarding.
 
 ## Status
 
@@ -31,8 +31,8 @@ JavaScript for the Shopify Customer Events (Web Pixels) API, Google Tag Manager 
 
 ## History
 
-- First commit: 2024-04-15 ("Create customer-events-pixel.js"); last commit: 2025-06-26; 25 commits.
-- Authors: the Analyzify tracking team.
+- First commit: 2024-04-15 by Ceyhun Aksan ("Create customer-events-pixel.js"); last commit: 2025-06-26 by Ceyhun Aksan; 25 commits.
+- Main authors: Ceyhun Aksan (20), Melike Sinem Kaya (5).
 - 2024-04-15: pixel script created; 2024-07-24: two updates.
 - 2025-06-19 to 2025-06-23: pixel reworked, README written, GTM container info added.
 - 2025-06-26: container and documentation updated (v1.0), last change.
@@ -46,11 +46,11 @@ JavaScript for the Shopify Customer Events (Web Pixels) API, Google Tag Manager 
 
 ## Who to ask
 
-The Analyzify team (via https://analyzify.com).
+Ceyhun Aksan (main author) for the kit's code and history; Erman Küplü for the business side.
 
 ## Answers from the team
 
-- 2026-11-25 (tracking team): the kit was created at the owners' request as a free, open-source resource for the community and a simplified version of Analyzify's own GTM setup. Where it was published or promoted is not known; it may have had a dedicated page or been linked from an article or blog post.
+- 2026-11-25 (main author): the kit was created at the founder's request as a free, open-source resource for the community and a simplified version of Analyzify's own GTM setup. Where it was published or promoted is not known; it may have had a dedicated page or been linked from an article or blog post.
 
 ## Original README
 
