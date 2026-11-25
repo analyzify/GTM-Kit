@@ -46,7 +46,11 @@ JavaScript for the Shopify Customer Events (Web Pixels) API, Google Tag Manager 
 
 ## Who to ask
 
-Ceyhun Aksan (main author) for whether the kit was ever published or promoted; Erman Küplü for the business side.
+Ceyhun Aksan (main author) for the kit's code and history; Erman Küplü for the business side.
+
+## Answers from the team
+
+- 2026-11-25 (main author): the kit was created at the founder's request as a free, open-source resource for the community and a simplified version of Analyzify's own GTM setup. Where it was published or promoted is not known; it may have had a dedicated page or been linked from an article or blog post.
 
 ## Original README
 
