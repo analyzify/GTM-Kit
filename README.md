@@ -1,4 +1,56 @@
-# Shopify GTM Kit by Analyzify (v1.0)
+# GTM-Kit
+
+> **Status: Archived on 2026-11-25**. Shopify GTM Kit v1.0 by Analyzify: a Customer Events custom pixel plus an importable Google Tag Manager container for GA4 and Google Ads.
+
+## What it is
+
+An open-source kit for Shopify merchants: `customer-events-pixel.js` (a custom pixel for Shopify Admin > Settings > Customer Events that injects GTM and pushes enhanced e-commerce `ee_*` events to the dataLayer) and `container/gtm-kit.json` (a GTM container with 12 tags for GA4 and Google Ads).
+
+## Why it existed
+
+A free, open-source successor to the Shopify GA4 Kit built on Shopify's Customer Events API, meant as content and a lead magnet for Analyzify. The pixel script was started in April 2024 and the kit (README, container, docs) was finished as v1.0 in June 2025 by Ceyhun Aksan with Melike Kaya during her onboarding.
+
+## Status
+
+Archived on 2026-11-25 as part of the analyzify GitHub org cleanup. No changes since 2025-06-26. The repo stays read-only for reference.
+
+## Where it ran
+
+| What | Value |
+|---|---|
+| Domains / URLs | None found. The README links help articles on https://docs.analyzify.com (they serve 200). No analyzify.com landing page for the kit was found (https://analyzify.com/shopify-gtm-kit returns 404). |
+| Hosting | None. The pixel runs in the merchant's Shopify Customer Events sandbox; the container is imported into the merchant's own GTM account. |
+| DNS zone | None. |
+| Database | None. |
+| Storage | None. |
+| Deploy | None. Merchants paste the pixel and import the container by hand. |
+
+## Tech stack
+
+JavaScript for the Shopify Customer Events (Web Pixels) API, Google Tag Manager container export (JSON), GA4, Google Ads.
+
+## History
+
+- First commit: 2024-04-15 by Ceyhun Aksan ("Create customer-events-pixel.js"); last commit: 2025-06-26 by Ceyhun Aksan; 25 commits.
+- Main authors: Ceyhun Aksan (20), Melike Sinem Kaya (5).
+- 2024-04-15: pixel script created; 2024-07-24: two updates.
+- 2025-06-19 to 2025-06-23: pixel reworked, README written, GTM container info added.
+- 2025-06-26: container and documentation updated (v1.0), last change.
+- No pull requests or issues.
+- 2026-11-25: archived.
+
+## Related repos
+
+- https://github.com/analyzify/shopify-ga4-kit: the 2022 predecessor (theme data layers).
+- https://github.com/analyzify/shopify-pixels: the 2022 GA4 custom pixel.
+
+## Who to ask
+
+Ceyhun Aksan (main author) for whether the kit was ever published or promoted; Erman Küplü for the business side.
+
+## Original README
+
+### Shopify GTM Kit by Analyzify (v1.0)
 
 A simple and flexible open-source kit to integrate Google Tag Manager (GTM) into your Shopify store with minimal setup.
 It captures **enhanced-ecommerce** events via Shopify’s Customer Events API and forwards them to **Google Tag Manager**.
@@ -11,7 +63,7 @@ It includes:
 
 ---
 
-## Contents
+#### Contents
 
 | File                       | Purpose                                                                                  |
 |----------------------------|------------------------------------------------------------------------------------------|
@@ -21,11 +73,11 @@ It includes:
 
 ---
 
-## Quick Start
+#### Quick Start
 
 Before you import the GTM container and set up the pixel script, make sure you have the following accounts and information ready:
 
-### Step 1: Collect Required Variables
+##### Step 1: Collect Required Variables
 
 | Variable Name         | Where to Find It                                                                                                                                                              |
 |-----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -45,7 +97,7 @@ If you don’t have any conversion actions set up in Google Ads and you don't kn
 
 ---
 
-### Step 2: Add custom pixel to your shop
+##### Step 2: Add custom pixel to your shop
 
 1. Go to **Shopify Admin → Settings → Customer Events**
 2. Click **“Add custom pixel”**, paste the contents of `customer-events-pixel.js`, and name it **Analyzify GTM Kit v1.0**
@@ -61,7 +113,7 @@ const debugMode          = false;         // ← disable in production
 5. Reload your store; open DevTools → Console to verify logs (debug mode only).
 6. Confirm events appear in your GTM Preview and GA4/Ads debugger.
 
-### Configuration
+##### Configuration
 
 | Constant               | Required | Description                                                                                                                                                                             |
 |------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -74,11 +126,11 @@ const debugMode          = false;         // ← disable in production
 > The script injects GTM automatically. Remove any other GTM snippet to avoid duplicate container loads.
 
 --- 
-### Step 3: GTM-kit container
+##### Step 3: GTM-kit container
 > [!Warning]  
 > The container does **not** include your measurement IDs (like GA4 or Google Ads) — you’ll need to update those after import.
 
-### How to Import
+##### How to Import
 
 1. Go to your [Google Tag Manager](https://tagmanager.google.com) account
 2. Open the container you want to use
@@ -92,7 +144,7 @@ const debugMode          = false;         // ← disable in production
    - **Overwrite** (to replace your current setup entirely)
 7. Click **Confirm** and review all the imported tags, triggers, and variables
 
-#### After Import: Update Required Variables
+###### After Import: Update Required Variables
 
 Once the container is imported:
 
@@ -102,7 +154,7 @@ Once the container is imported:
    - **Measurement ID** – used for GA4 data streams.
    - Optional: Add **conversion labels** for events like `add_to_cart`, `view_item`, and `purchase`.
 
-#### Product ID Format (Optional)
+###### Product ID Format (Optional)
 
 - The default product ID format is `Product ID`.
 - If you prefer, you can update this to use:
@@ -115,7 +167,7 @@ Once the container is imported:
 
 ---
 
-## Event Mapping
+#### Event Mapping
 
 | Shopify Event                    | GTM Event           | GA4/Ads Action                                |
 |----------------------------------|---------------------|-----------------------------------------------|
@@ -139,7 +191,7 @@ All ecommerce events follow Google’s Enhanced Ecommerce `items[]` spec and inc
 
 ---
 
-## Gotchas & Troubleshooting
+#### Gotchas & Troubleshooting
 
 | Symptom                             | Fix                                                                                                                                                     |
 |-------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -150,13 +202,13 @@ All ecommerce events follow Google’s Enhanced Ecommerce `items[]` spec and inc
 
 ---
 
-## Contributing
+#### Contributing
 
 PRs welcome! Please follow [conventional commit](https://www.conventionalcommits.org/en/v1.0.0/) standards (`feat:`, `fix:`, etc.).
 > The formatting is intentional to ensure compatibility, readability, and maintainability within the Shopify Customer Events environment.
 
 ---
 
-## License
+#### License
 
 MIT – do whatever you want, but keep the copyright notice.
